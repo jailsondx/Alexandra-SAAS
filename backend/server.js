@@ -2,8 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './router.js';
+import db from './connection.js';
 
 dotenv.config();
+
+// Inicializa Conexao com o BD
+db;
 
 const app = express();
 app.use(cors());  // Permite CORS para frontend local

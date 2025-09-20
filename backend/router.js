@@ -1,5 +1,7 @@
 import express from 'express';
-import pool from './connection.js';
+import db from './connection.js';
+import getLocaisAtendimento from './functions/getLocaisAtendimento.js';
+import getEspecialidades from './functions/getespecialidades.js';
 
 const router = express.Router();
 
@@ -7,14 +9,40 @@ router.get('/', async (req, res) => {
   res.send('Servidor Backend Rodando');
 });
 
-// Rota de teste: GET /api/test
-router.get('/test', async (req, res) => {
+
+router.get('/LocaisAtendimento', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT 1 AS test');  // Query simples para testar conexão
-    res.json({ message: 'Conexão com BD ok!', data: rows });
+    const response = await getLocaisAtendimento(db);
+    res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({ error: 'Erro na conexão com BD' });
+    res.status(500).json({ error: 'Erro ao buscar locais de atendimento' });
   }
 });
+
+
+router.get('/Especialidades', async (req, res) => {
+  try {
+    const response = await getEspecialidades(db);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar locais de atendimento' });
+  }
+});
+
+
+
+
+
+
+router.post('/NovoAtendimento', async (req, res) => {
+  const formData = req.body;
+  try {
+    const response = await postNovoAtendimento(db, formData);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar locais de atendimento' });
+  }
+});
+
 
 export default router;

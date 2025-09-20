@@ -1,17 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home';
-//import About from './pages/About';
-//import NotFound from './pages/NotFound';
+import { BrowserRouter } from 'react-router-dom';
+import MenuBar from './components/MenuBar/MenuBar';
+import Router from './Router';
+import './App.css';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <div className="app">
+        <MenuBar />
+        <div className="content">
+          <Router />
+        </div>
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
