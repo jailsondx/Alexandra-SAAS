@@ -1,0 +1,11 @@
+# Gitignore for Raku (https://raku.org)
+# As part of https://github.com/github/gitignore
+
+# precompiled files
+.precomp
+lib/.precomp
+
+
+*.env
+.env.local
+.env.*.local
