@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from '../../components/SideBar/SideBar';
 import ProximosAtendimentos from '../../components/ProximosAtendimentos/ProximosAtendimentos';

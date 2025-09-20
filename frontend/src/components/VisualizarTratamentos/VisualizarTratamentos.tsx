@@ -1,4 +1,3 @@
-import React from 'react';
 import './VisualizarTratamentos.css';
 
 const VisualizarTratamentos = () => {

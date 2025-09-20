@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import MenuBar from './components/MenuBar/MenuBar';
 import Router from './Router';

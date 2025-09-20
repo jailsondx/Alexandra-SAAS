@@ -1,4 +1,3 @@
-import React from 'react';
 import './ProximosAtendimentos.css';
 
 const ProximosAtendimentos = () => {
