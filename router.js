@@ -2,6 +2,8 @@ import express from 'express';
 import db from './connection.js';
 import getLocaisAtendimento from './functions/getLocaisAtendimento.js';
 import getEspecialidades from './functions/getespecialidades.js';
+import postNovoAtendimento from './functions/postNovoAtendimento.js';
+import getConsultas from './functions/getConsultas.js';
 
 const router = express.Router();
 
@@ -23,6 +25,16 @@ router.get('/LocaisAtendimento', async (req, res) => {
 router.get('/Especialidades', async (req, res) => {
   try {
     const response = await getEspecialidades(db);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar locais de atendimento' });
+  }
+});
+
+
+router.get('/Consultas', async (req, res) => {
+  try {
+    const response = await getConsultas(db);
     res.status(200).json(response);
   } catch (error) {
     res.status(500).json({ error: 'Erro ao buscar locais de atendimento' });
